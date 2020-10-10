@@ -95,7 +95,12 @@ header button {
 }
 
 .fav-meals li span {
+    width: 70px;
+    display: inline-block;
     font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
