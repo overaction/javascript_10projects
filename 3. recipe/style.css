@@ -154,3 +154,46 @@ header button {
 .meal-body .fav-btn.active {
     color: rebeccapurple;
 }
+
+.meal-info-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: rgba(0,0,0,0.5);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.meal-info-container.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.meal-info {
+    position: relative;
+    overflow: auto;
+    background-color: #ffff;
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    max-height: 800px;
+    padding: 2rem;
+    border-radius: 5px;
+}
+
+.meal-info h1 {
+    text-align: center;
+}
+
+.meal-info #close-popup {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
