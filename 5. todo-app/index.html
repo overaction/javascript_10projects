@@ -11,10 +11,16 @@
 <body>
     <section class="todos-app">
         <div class="todos-title">todos</div>
-        <div class="todos">
+        <div class="todos" id="todos">
             <div class="todos-add">
                 <button class="clear-all"><i class="fas fa-stream"></i></button>
-                <input placeholder="What needs to be done?" type="text" class="input">
+                <input 
+                placeholder="What needs to be done?" 
+                type="text" 
+                class="input" 
+                id="input"
+                onkeypress="JavaScript:pressEnter()"
+                >
             </div>
             <div class="todo">
                 <div class="todo-left">
