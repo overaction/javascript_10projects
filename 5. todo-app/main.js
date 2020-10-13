@@ -2,7 +2,13 @@
 const input = document.getElementById('input');
 const todos = document.getElementById('todos');
 const clearAllBtn = document.querySelector('.clear-all');
-let todo_number = 1;
+
+const localTodos = localStorage.getItem('todos');
+const parsedTodos = JSON.parse(localTodos);
+
+parsedTodos.forEach((todoData) => {
+    addLSTodo(todoData);
+})
 
 function pressEnter() {
     if(event.keyCode === 13 && input.value) {
@@ -10,22 +16,38 @@ function pressEnter() {
     }
 }
 
+function addLSTodo(metadata) {
+    const todo = document.createElement('div');
+    todo.classList.add('todo');
+    todo.innerHTML = `
+    <div class="todo-left">
+        <button class="clear"><i class="far fa-circle"></i></button>
+        <div class="todo-text ${metadata.complete ? 'complete' : ''}">${metadata.text}</div>
+    </div>
+    <button class="delete hidden"><i class="far fa-window-close"></i></button>
+    `;
+    todos.appendChild(todo);
+
+    completeTodo(todo);
+    deleteTodo(todo);
+}
+
 function addTodo() {
     const todo = document.createElement('div');
     todo.classList.add('todo');
     todo.innerHTML = `
     <div class="todo-left">
-        <button data-index=${todo_number} class="clear"><i class="far fa-circle"></i></button>
-        <div data-index=${todo_number} class="todo-text">${input.value}</div>
+        <button class="clear"><i class="far fa-circle"></i></button>
+        <div class="todo-text">${input.value}</div>
     </div>
     <button class="delete hidden"><i class="far fa-window-close"></i></button>
     `;
     todos.appendChild(todo);
     input.value = '';
-    todo_number++;
 
     completeTodo(todo);
     deleteTodo(todo);
+    updateLS();
 }
 
 function completeTodo(todo) {
@@ -33,6 +55,7 @@ function completeTodo(todo) {
     const todoData = todo.querySelector('.todo-text');
     clearBtn.addEventListener('click', (e) => {
         todoData.classList.toggle('complete');
+        updateLS();
     })
 }
 
@@ -47,6 +70,7 @@ function deleteTodo(todo) {
     deleteBtn.addEventListener('click', (e) => {
         const targetTodo = deleteBtn.parentNode;
         targetTodo.remove();
+        updateLS();
     });
 }
 
@@ -63,14 +87,24 @@ function checkComplete() {
 function completeAllTodos() {
     clearAllBtn.addEventListener('click', () => {
         let complete = checkComplete();
-        console.log(`2: ${complete}`)
         const currentTodos = todos.querySelectorAll('.todo');
         currentTodos.forEach((todo) => {
             const todoText = todo.querySelector('.todo-text');
             if(complete) todoText.classList.add('complete');
             else todoText.classList.remove('complete')
         })
+        updateLS();
     })
+}
+
+function updateLS() {
+    const todosLS = document.querySelectorAll('.todo-text');
+    const array_todos = [];
+    todosLS.forEach((todo) => {
+        array_todos.push({text: todo.innerHTML, complete: todo.classList.contains('complete')})
+    })
+    localStorage.setItem('todos', JSON.stringify(array_todos));
+    console.log('updated!!');
 }
 
 completeAllTodos();
