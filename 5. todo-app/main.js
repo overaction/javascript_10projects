@@ -49,3 +49,28 @@ function deleteTodo(todo) {
         targetTodo.remove();
     });
 }
+
+function checkComplete() {
+    let isComplete = false;
+    const currentTodos = todos.querySelectorAll('.todo');
+    currentTodos.forEach((todo) => {
+        if(!todo.querySelector('.todo-text').classList.contains('complete'))
+            isComplete = true;
+    })
+    return isComplete;
+}
+
+function completeAllTodos() {
+    clearAllBtn.addEventListener('click', () => {
+        let complete = checkComplete();
+        console.log(`2: ${complete}`)
+        const currentTodos = todos.querySelectorAll('.todo');
+        currentTodos.forEach((todo) => {
+            const todoText = todo.querySelector('.todo-text');
+            if(complete) todoText.classList.add('complete');
+            else todoText.classList.remove('complete')
+        })
+    })
+}
+
+completeAllTodos();
