@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    background-color: lightgoldenrodyellow;
+}
+
+.todos-app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.todos-title {
+    text-align: center;
+    font-size: 7rem;
+    color: lightgray;
+}
+
+.todos-add {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 60vw;
+    height: 80px;
+    background-color: #ffffff;
+
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;  
+    -moz-box-shadow:    3px 3px 5px 6px #ccc; 
+    box-shadow:         3px 3px 5px 6px #ccc;
+}
+
+.todos-app .clear-all {
+    border: none;
+    background-color: transparent;
+    font-size: 1.2rem;
+    margin: 0.5rem 1.2rem;
+    
+}
+
+input::placeholder {
+    color: wheat;
+    font-style: inherit;
+    border: none;
+}
+input:focus {outline:none;}
+
+.todos-app input {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: black;
+}
+
+.todo {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    box-shadow: 0 -5px 5px -5px rgb(221, 214, 214);
+}
+
+.todo .clear {
+    border: none;
+    background-color: transparent;
+    color: violet;
+    font-size: 2rem;
+    margin-left: 1rem;
+}
+
+.todo .todo-text {
+    padding: 2rem;
+    text-align: center;
+    line-height: 1rem;
+    font-size: 2rem;
+}
+
+.todo .delete {
+    border: none;
+    background-color: transparent;
+    font-size: 1.8rem;
+    color: thistle;
+    margin-right: 0.8rem;
+}
+
+.todo-left {
+    display: flex;
+}
