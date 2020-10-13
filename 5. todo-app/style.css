@@ -102,6 +102,10 @@ input:focus {outline:none;}
     margin-right: 0.8rem;
 }
 
+.todo .delete.hidden {
+    display: none;
+}
+
 .todo-left {
     display: flex;
 }

@@ -18,15 +18,34 @@ function addTodo() {
         <button data-index=${todo_number} class="clear"><i class="far fa-circle"></i></button>
         <div data-index=${todo_number} class="todo-text">${input.value}</div>
     </div>
-    <button class="delete"><i class="far fa-window-close"></i></button>
+    <button class="delete hidden"><i class="far fa-window-close"></i></button>
     `;
     todos.appendChild(todo);
     input.value = '';
     todo_number++;
 
+    completeTodo(todo);
+    deleteTodo(todo);
+}
+
+function completeTodo(todo) {
     const clearBtn = todo.querySelector('.clear');
     const todoData = todo.querySelector('.todo-text');
     clearBtn.addEventListener('click', (e) => {
         todoData.classList.toggle('complete');
     })
+}
+
+function deleteTodo(todo) {
+    const deleteBtn = todo.querySelector('.delete');
+    todo.addEventListener('mouseover', (e) => {
+        deleteBtn.classList.remove('hidden');
+    });
+    todo.addEventListener('mouseleave', () => {
+        deleteBtn.classList.add('hidden');
+    })
+    deleteBtn.addEventListener('click', (e) => {
+        const targetTodo = deleteBtn.parentNode;
+        targetTodo.remove();
+    });
 }
