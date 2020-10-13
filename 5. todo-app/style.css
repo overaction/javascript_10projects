@@ -30,6 +30,7 @@ body {
     width: 60vw;
     height: 80px;
     background-color: #ffffff;
+    margin-bottom: 0.25rem;
 
     -webkit-box-shadow: 3px 3px 5px 6px #ccc;  
     -moz-box-shadow:    3px 3px 5px 6px #ccc; 
@@ -63,7 +64,9 @@ input:focus {outline:none;}
     display: flex;
     justify-content: space-between;
     background-color: #ffffff;
-    box-shadow: 0 -5px 5px -5px rgb(221, 214, 214);
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;  
+    -moz-box-shadow:    3px 3px 5px 6px #ccc; 
+    box-shadow:         3px 3px 5px 6px #ccc;
 }
 
 .todo .clear {
