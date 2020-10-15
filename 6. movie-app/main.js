@@ -42,7 +42,7 @@ function getClassByRate(average) {
 function updateMovie(metaData) {
     movieList.innerHTML = ``;
     metaData.forEach((movie) => {
-        const {title,vote_average,poster_path} = movie;
+        const {title,vote_average,poster_path,overview,popularity} = movie;
         const movieEl = document.createElement('div');
         movieEl.classList.add('movie');
         movieEl.innerHTML = `
@@ -50,6 +50,10 @@ function updateMovie(metaData) {
             <div class="movie-info">
                 <h3>${title}</h3>
                 <span class="${getClassByRate(vote_average)}">${vote_average}</span>
+            </div>
+            <div class="overview">
+                <h3>${title}</h3>
+                <h2>${overview}</h2>
             </div>
         `;
         movieList.appendChild(movieEl);
@@ -61,5 +65,5 @@ fetchedData();
 searchBtn.addEventListener('click', () => {
     const movieName = input.value;
     if(movieName)
-        searchMovie(movieName);
+    searchMovie(movieName);
 })
