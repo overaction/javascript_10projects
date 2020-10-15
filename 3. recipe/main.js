@@ -7,24 +7,6 @@ const searchTerm = document.getElementById('search-term');
 const mealPopup = document.getElementById('meal-popup');
 const mealInfo = document.getElementById('meal-info');
 
-function mealFetch(url,time) {
-    return new Promise((resolve,reject) => {
-        setTimeout(() => {
-            const mealFetch = fetch(url);
-            resolve(mealFetch);
-        },time);
-    });
-}
-
-function mealToJson(meal) {
-    return new Promise((resolve,reject) => {
-        setTimeout(() => {
-            const mealJson = meal.json();
-            resolve(mealJson);
-        },0);
-    })
-}
-
 function addMeal(mealData, random = false) {
     const meal = document.createElement('div');
     meal.classList.add('meal');
@@ -152,6 +134,24 @@ async function getMealsBySearch(name) {
     const searchMeal = jsonMeals.meals;
     
     return searchMeal;
+}
+
+function mealFetch(url,time) {
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            const mealFetch = fetch(url);
+            resolve(mealFetch);
+        },time);
+    });
+}
+
+function mealToJson(meal) {
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            const mealJson = meal.json();
+            resolve(mealJson);
+        },0);
+    })
 }
 
 getRandomMeal();
