@@ -15,3 +15,87 @@ body {
     margin: 0;
     height: 100vh;
 }
+
+.search {
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: #a4508b;
+    background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
+}
+
+.search:focus {
+    outline: none;
+}
+
+.search::placeholder {
+    color: white;
+}
+
+.info-box {
+    position: relative;
+    color: rgb(248, 247, 247);
+    display: flex;
+    max-width: 650px;
+    height: 300px;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 3px solid #641cd6;
+    background-color: #2a2a72;
+    background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+}
+
+.info-box .info {
+    margin-top: 1rem;
+}
+
+.info-box .user {
+    font-weight: 800;
+    padding-bottom: 0.5rem;
+}
+
+.info-box .repo {
+    padding: 1rem 0;
+}
+
+.info-box .introduce {
+    font-weight: 500;
+}
+
+.info-box .details {
+    display: flex;
+    font-weight: 700;
+    padding: 0;
+    
+}
+
+.info-box .details li {
+    padding: 0.5rem;
+    padding-left: 0;
+}
+
+.info-box img {
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    margin-right: 1rem;
+}
+
+.info-box button {
+    border: none;
+    background-color: #7f5a83;
+    background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
+    color: white;
+    padding: 0.3rem;
+    margin-right: 0.3rem;
+    border-radius: 10px;
+    border: 3px solid #641cd6;
+}
+
+.info-box h2,h3,ul {
+    margin: 0;
+    list-style-type: none;
+}
