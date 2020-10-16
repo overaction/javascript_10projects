@@ -37,7 +37,10 @@ function updateUser(metaData, reposData) {
     </div>
     `;
     const repos = infoBox.querySelector('.repos');
-    reposData.forEach((repo) => {
+    reposData
+    .sort((a,b) => b.stargazers_count - a.stargazers_count)
+    .slice(0,10)
+    .forEach((repo) => {
         const button = document.createElement('button');
         button.innerHTML = `
             ${repo.name}
