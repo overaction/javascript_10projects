@@ -22,9 +22,10 @@ body {
     background-image: linear-gradient(315deg, #0cbaba 0%, #380036 74%);
     height: 430px;
     width: 380px;
+    border-radius: 8px;
 }
 
-.options .length input {
+.options input[type="text"] {
     width: 50px;
 }
 
@@ -60,4 +61,5 @@ body {
     font-weight: bold;
     width: 80%;
     transform: translate(13%, 50%);
+    border-radius: 8px;
 }
