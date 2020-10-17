@@ -4,10 +4,8 @@ const ctx = canvas.getContext('2d');
 const size = document.getElementById('size');
 const increaseBtn = document.getElementById('increase');
 const decreaseBtn = document.getElementById('decrease');
-const input = document.getElementById('color');
+const color = document.getElementById('color');
 const clearBtn = document.getElementById('clear');
-
-console.log(size.innerText);
 
 let x = 50;
 let y = 50;
@@ -40,6 +38,7 @@ decreaseBtn.addEventListener('click', () => {
 function drawCircle(x,y) {
     ctx.beginPath();
     ctx.arc(x,y,size.innerText,0,Math.PI*2);
+    ctx.fillStyle = color.value;
     ctx.fill();
 }
 
