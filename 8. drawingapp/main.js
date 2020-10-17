@@ -35,6 +35,10 @@ decreaseBtn.addEventListener('click', () => {
     size.innerText = Number(size.innerText)-5;
 })
 
+clearBtn.addEventListener('click', () => {
+    ctx.clearRect(0, 0, 800, 800);
+})
+
 function drawCircle(x,y) {
     ctx.beginPath();
     ctx.arc(x,y,size.innerText,0,Math.PI*2);
