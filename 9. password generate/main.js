@@ -80,3 +80,18 @@ function extraPW() {
 }
 
 createBtn.addEventListener('click',generatePW);
+
+password.addEventListener('click',() => {
+    if (document.selection) {
+        let range = document.body.createTextRange();
+        range.moveToElementText(document.querySelector('.password'));
+        range.select().createTextRange();
+        document.execCommand("copy");
+    } else if (window.getSelection) {
+        let range = document.createRange();
+        range.selectNode(document.querySelector('.password'));
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+        alert("Text has been copied, now paste in the text-area")
+    }
+})
